@@ -8,13 +8,16 @@ class tomcat::install {
     group => $::tomcat::group,
     mode  => 0644,
   }
-
+/*
   file { $base_dir:
-    ensure => 'directory',
+    ensure  => 'directory',
+    purge   => true
+    recurse => true,
   }
+*/
  
   class{ "::tomcat::install::${source}":
-    require => File[$base_dir],
+    #    require => File[$base_dir],
    }
 
   file { '/opt/tomcat':

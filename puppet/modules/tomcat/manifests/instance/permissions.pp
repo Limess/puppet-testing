@@ -1,15 +1,16 @@
 define tomcat::instance::permissions (
-  $instance_dir = $title,
-  $owner        = $::tomcat::user,
-  $group        = $::tomcat::group,
+  $folder_presence = 'directory',
+  $instance_dir    = $title,
+  $owner           = $::tomcat::user,
+  $group           = $::tomcat::group,
 ) {
 
   File {
-    ensure  => 'directory',
+    ensure  => $folder_presence,
     owner   => $owner,
     group   => $group,
     recurse => true,
-    mode    => 0744,
+    mode    => '0644',
   }
 
   file { "${instance_dir}/webapps": }
@@ -19,4 +20,6 @@ define tomcat::instance::permissions (
   file { "${instance_dir}/temp": }
 
   file { "${instance_dir}/work": }
+
+  file { "${instance_dir}/conf": }
 }

@@ -27,7 +27,6 @@ class tomcat (
   validate_re("${ajp_port}", '^[0-9]+$')
   validate_re("${install_source}", ['rpm', 'tar', 'package'])
 
-  class { 'tomcat::install': } ->
-  tomcat::instance{ 'default': }
-  class { 'tomcat::user': }
+  class { 'tomcat::user': } ->
+  class { 'tomcat::install': }
 }

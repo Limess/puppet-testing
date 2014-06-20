@@ -8,8 +8,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
   config.vm.network :private_network, ip: "192.168.33.10"
   config.vm.network "forwarded_port", guest: 8081, host: 8091, autocorrect: true
+  config.vm.network "forwarded_port", guest: 8082, host: 8092, autocorrect: true
   config.vm.network "forwarded_port", guest: 8080, host: 8090, autocorrect: true
   config.vm.network "forwarded_port", guest: 8090, host: 9000, autocorrect: true
+  
+  config.vm.hostname = "test.example.com"
   
   ## Enable SSH key forwarding from host -> guest
   config.ssh.private_key_path = ['~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa']
@@ -35,6 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     	puppet.manifests_path = "puppet/manifests"
     	puppet.manifest_file  = "site.pp"
 	puppet.module_path = "puppet/modules"	
+        puppet.hiera_config_path = "hiera.yaml"
   end
 
 end
