@@ -1,0 +1,36 @@
+---
+java::distribution: 'jdk'
+java::version: 'present'
+
+mongodb::globals:
+  version: '2.2.7'
+mongodb::server:
+  auth: true
+  package_name: 'mongodb-org-server-2.2.7.x86_64'
+  user: 'vagrant'
+  group: 'vagrant'
+mongodb::dbs:
+  TestDB:
+    user: 'root'
+    password: 'password' 
+
+tomcat:
+  version: '7'
+  install_sources: 'rpm'
+  user: 'tomcat'
+  group: 'tomcat'
+tomcat::instances:
+  default:
+    user: 'tomcat'
+    group: 'tomcat'
+    running: true
+    server_port: '8081'
+    ajp_port: '8010'
+    http_port: '8045'
+  A:
+    user: 'tomcat'
+    group: 'tomcat'
+    running: true
+    server_port: '8082'
+    ajp_port: '8011'
+    http_port: '8046'

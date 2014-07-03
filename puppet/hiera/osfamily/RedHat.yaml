@@ -1,0 +1,4 @@
+---
+classes:
+  - firewall
+profiles::firewall:running: stopped

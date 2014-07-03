@@ -1,0 +1,3 @@
+---
+java::distribution: 'jdk'
+java::version: 'present'

@@ -8,6 +8,10 @@ define tomcat::instance (
   $ajp_port      = $::tomcat::ajp_port,
 ) {
 
+  include tomcat
+
+  Class['::tomcat'] -> Tomcat::Instance["$title"]
+
   validate_bool($running)
   validate_string($user)
   validate_string($group)

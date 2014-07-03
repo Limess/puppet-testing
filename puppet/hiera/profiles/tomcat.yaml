@@ -1,0 +1,19 @@
+---
+profile::tomcat:
+  version: '7'
+  install_sources: 'rpm'
+  user: 'tomcat'
+  group: 'tomcat'
+tomcat::instance:
+  default:
+    running: true
+    server_port: '8081'
+    ajp_port: '8010'
+    http_port: '8045'
+
+tomcat::instance:
+  A:
+    running: true
+    server_port: '8082'
+    ajp_port: '8011'
+    http_port: '8046'

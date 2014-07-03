@@ -6,11 +6,11 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
-  config.vm.network :private_network, ip: "192.168.33.10"
-  config.vm.network "forwarded_port", guest: 8081, host: 8091, autocorrect: true
-  config.vm.network "forwarded_port", guest: 8082, host: 8092, autocorrect: true
-  config.vm.network "forwarded_port", guest: 8080, host: 8090, autocorrect: true
-  config.vm.network "forwarded_port", guest: 8090, host: 9000, autocorrect: true
+  config.vm.network :private_network, ip: "192.168.33.15"
+  #config.vm.network "forwarded_port", guest: 8081, host: 8091, autocorrect: true
+  #config.vm.network "forwarded_port", guest: 8082, host: 8092, autocorrect: true
+  #config.vm.network "forwarded_port", guest: 8080, host: 8090, autocorrect: true
+  #config.vm.network "forwarded_port", guest: 8090, host: 9000, autocorrect: true
   
   config.vm.hostname = "test.example.com"
   
@@ -37,8 +37,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :puppet do |puppet|
     	puppet.manifests_path = "puppet/manifests"
     	puppet.manifest_file  = "site.pp"
-	puppet.module_path = "puppet/modules"	
-        puppet.hiera_config_path = "hiera.yaml"
+	puppet.module_path = "puppet/modules"
+        puppet.hiera_config_path = "puppet/hiera/hiera.yaml"
+       # puppet.options = "--verbose --debug"
   end
 
 end

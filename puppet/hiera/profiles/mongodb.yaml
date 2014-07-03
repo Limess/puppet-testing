@@ -1,0 +1,12 @@
+---
+mongodb::globals:
+  version: '2.2.7'
+mongodb::server:
+  server_package_name: 'mongodb-org-server-2.2.7.x86_64'
+  auth: true
+  user: 'vagrant'
+  group: 'vagrant'
+mongodb::db:
+  'TestDB':
+    user: 'root'
+    password: 'password' 

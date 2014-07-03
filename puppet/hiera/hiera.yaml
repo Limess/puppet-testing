@@ -1,0 +1,11 @@
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: /vagrant/puppet/hiera
+:hierarchy:
+  - "nodes/%{::fqdn}"
+  - "osfamily/%{::osfamily}"
+  - common
+:logger:
+  - console
