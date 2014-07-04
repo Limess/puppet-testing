@@ -1,0 +1,8 @@
+GO_SERVER=<%= @go_server_ip %>
+export GO_SERVER
+GO_SERVER_PORT=<%= @go_server_port %>
+export GO_SERVER_PORT
+AGENT_WORK_DIR=/var/lib/go-agent
+export AGENT_WORK_DIR
+DAEMON=<% if @daemon == true %>Y<% else %>N<% end %>
+VNC=<% if @vnc == true %>Y<% else %>N<% end %>

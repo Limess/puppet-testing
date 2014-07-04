@@ -1,0 +1,17 @@
+{
+  "name": "limess-tw_go",
+  "version": "0.1.0",
+  "author": "limess",
+  "summary": "Install and run ThoughtWorks Go Agent",
+  "license": "Apache 2.0",
+  "source": "https://www.github.com/limess/puppet-test/puppet/modules/limess-tw_go",
+  "project_page": "https://www.github.com/limess/puppet-test/puppet/modules/limess-tw_go",
+  "issues_url": "https://www.github.com/limess/puppet-test/puppet/modules/limess-tw_go/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
